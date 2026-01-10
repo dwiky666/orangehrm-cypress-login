@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# cypress outputs
+cypress/videos
+cypress/screenshots
+
+# cypress example specs 
+cypress/e2e/1-getting-started
+cypress/e2e/2-advanced-examples
+
+# OS
+.DS_Store
