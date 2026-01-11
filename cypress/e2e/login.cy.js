@@ -1,4 +1,4 @@
-describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
+describe('OrangeHRM - Login Feature', () => {
   const URL_LOGIN =
     'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 
@@ -6,7 +6,7 @@ describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
     username: 'input[name="username"]',
     password: 'input[name="password"]',
     submit: 'button[type="submit"]',
-    requiredMsg: '.oxd-input-field-error-message', // teks "Required"
+    requiredMsg: '.oxd-input-field-error-message',
   };
 
     const assertLoginFormReady = () => {
@@ -110,7 +110,7 @@ describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
 
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
     cy.url({ timeout: 20000 }).should('include', '/auth/login');
-    cy.get(sel.username, { timeout: 20000 }).should('be.visible');
+    assertLoginFormReady();
   });
 
   it('TC-009 - Halaman login stabil saat refresh berulang (>3x)', () => {
