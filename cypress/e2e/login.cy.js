@@ -9,11 +9,15 @@ describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
     requiredMsg: '.oxd-input-field-error-message', // teks "Required"
   };
 
+    const assertLoginFormReady = () => {
+    cy.get(sel.username).should('be.visible');
+    cy.get(sel.password).should('be.visible');
+    cy.get(sel.submit).should('be.visible');
+  };
+
   const visitLogin = () => {
     cy.visit(URL_LOGIN);
-    cy.get(sel.username, { timeout: 20000 }).should('be.visible');
-    cy.get(sel.password, { timeout: 20000 }).should('be.visible');
-    cy.get(sel.submit, { timeout: 20000 }).should('be.visible');
+    assertLoginFormReady();
   };
 
   const fillLogin = (username, password) => {
@@ -75,10 +79,7 @@ describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
       fillLogin('Admin', 'wrongPassword');
       submit();
       assertInvalid();
-
-      // pastikan form siap lagi sebelum attempt berikutnya
-      cy.get(sel.username, { timeout: 20000 }).should('be.visible');
-      cy.get(sel.password, { timeout: 20000 }).should('be.visible');
+      assertLoginFormReady();
     }
   });
 
@@ -117,9 +118,7 @@ describe('OrangeHRM - Login Feature (Excel Test Cases)', () => {
 
     for (let i = 1; i <= refreshTimes; i++) {
       cy.reload();
-      cy.get(sel.username, { timeout: 20000 }).should('be.visible');
-      cy.get(sel.password, { timeout: 20000 }).should('be.visible');
-      cy.get(sel.submit, { timeout: 20000 }).should('be.visible');
+      assertLoginFormReady();
     }
   });
 
