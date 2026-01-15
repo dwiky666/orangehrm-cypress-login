@@ -1,7 +1,7 @@
 describe('Reqres API Automation Cypress', () => {
   const baseUrl = 'https://reqres.in/api';
 
-  const API_KEY = 'API_KEY';
+  const API_KEY = 'reqres_6518f308d9c74a259d56f0d39b16a558';
 
   const headers = () => ({
     'x-api-key': API_KEY,
